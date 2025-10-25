@@ -2,10 +2,12 @@
 
 namespace App\Filament\Resources;
 
+
+
 use App\Filament\Resources\CategoryResource\Pages;
 use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
-use Filament\Actions\ActionGroup;
+use Filament\Actions\Action;
 use Filament\Forms;
 use Illuminate\Support\Str;
 use Filament\Forms\Components\FileUpload;
@@ -17,6 +19,10 @@ use Filament\Forms\Form;
 use Filament\Forms\Set;
 use Filament\Resources\Resource;
 use Filament\Tables;
+use Filament\Tables\Actions\ActionGroup;
+use Filament\Tables\Actions\EditAction;
+use Filament\Tables\Actions\DeleteAction;
+use Filament\Tables\Actions\ViewAction;
 use Filament\Tables\Table;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -88,11 +94,10 @@ class CategoryResource extends Resource
                 //
             ])
             ->actions([
-                
-                Tables\Actions\ActionGroup::make([
-                    Tables\Actions\ViewAction::make(),
-                    Tables\Actions\EditAction::make(),
-                    Tables\Actions\DeleteAction::make(),
+                ActionGroup::make([
+                ViewAction::make(),
+                EditAction::make(),
+                DeleteAction::make(),
                 ])
             ])
             ->bulkActions([
