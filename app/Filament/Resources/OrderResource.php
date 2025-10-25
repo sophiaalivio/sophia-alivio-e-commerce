@@ -1,11 +1,8 @@
 <?php
 
-
 namespace App\Filament\Resources;
-
 use Illuminate\Support\Number;
-
-
+use App\Filament\Resources\OrderResource\RelationManagers\AddressRelationManager;
 
 use App\Filament\Resources\OrderResource\Pages;
 use App\Filament\Resources\OrderResource\RelationManagers;
@@ -253,7 +250,10 @@ class OrderResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
+
+
+            AddressRelationManager::class,
         ];
     }
     public static function getNavigationBadge(): ?string
