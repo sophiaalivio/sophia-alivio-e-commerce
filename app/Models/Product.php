@@ -22,6 +22,10 @@ class Product extends Model
         'on_sale',
     ];
 
+    protected $casts = [
+        'images' => 'array',
+    ];
+
      public function category()
     {
         return $this->belongsTo(Category::class);
