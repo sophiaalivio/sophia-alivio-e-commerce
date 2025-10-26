@@ -33,6 +33,10 @@ class CategoryResource extends Resource
 
     protected static ?string $navigationIcon = 'heroicon-o-tag';
 
+     protected static ?string $recordTitleAttribute = 'name';
+
+    protected static ?int $navigationSort = 3;
+
     public static function form(Form $form): Form
     {
         return $form
@@ -113,6 +117,12 @@ class CategoryResource extends Resource
             //
         ];
     }
+
+    
+    public static function getGloballySearchableAttributes(): array
+{
+    return ['name', 'email'];
+}
 
     public static function getPages(): array
     {
